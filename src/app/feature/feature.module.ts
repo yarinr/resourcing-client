@@ -5,9 +5,7 @@ import { AdminPageComponent } from './admin-page/admin-page.component';
 import { DevOpsLinksPageComponent } from './dev-ops-links-page/dev-ops-links-page.component';
 import { LeaderBoardComponent } from './leader-board/leader-board.component';
 import { ProgramingLinksPageComponent } from './programing-links/programing-links-page.component';
-import { MaterialModule } from '../shared/material/material.module';
-import { MatTableModule } from '@angular/material/table';
-import { MatSliderModule } from '@angular/material/slider';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +15,6 @@ import { MatSliderModule } from '@angular/material/slider';
     DevOpsLinksPageComponent,
     LeaderBoardComponent
   ],
-  imports: [CommonModule, MatSliderModule, MatTableModule]
+  imports: [CommonModule, SharedModule]
 })
 export class FeatureModule {}
