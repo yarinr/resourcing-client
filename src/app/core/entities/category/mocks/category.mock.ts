@@ -1,9 +1,9 @@
-import { Category } from '../model/category.model';
+import { Category, CatageryName } from '../model/category.model';
 
-export class FakeCatagories {
+export class FakeCategories {
   public categories: Category[] = [
-    { name: 'programming', icon: '' },
-    { name: 'devOps', icon: '' },
-    { name: 'design', icon: '' }
+    { name: CatageryName.programming, icon: '' },
+    { name: CatageryName.devOps, icon: '' },
+    { name: CatageryName.design, icon: '' }
   ];
 }

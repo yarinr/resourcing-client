@@ -1,0 +1,28 @@
+<div class="home-container">
+  <h1 class="page-title">{{ title }}</h1>
+  <div class="search-container">
+    <form class="search form">
+      <span>
+        <mat-form-field class="search-field">
+          <input matInput placeholder="Enter a search term here" value="" />
+        </mat-form-field>
+        <i class="material-icons icon">search</i>
+      </span>
+    </form>
+  </div>
+  <div class="topic-cards">
+    <mat-grid-list cols="3" rowHeight="2:1">
+      <mat-grid-tile *ngFor="let topic of topics">
+        <a class="topic-card" href="#">
+          <mat-card>
+            <span
+              ><img class="topic-thumbnail" src="{{ topic.icon }}" />{{
+                topic.name
+              }}</span
+            ></mat-card
+          >
+        </a>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>

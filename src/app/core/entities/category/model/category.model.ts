@@ -1,4 +1,10 @@
 export interface Category {
-  name: string;
+  name: CatageryName;
   icon;
+}
+
+export enum CatageryName {
+  programming,
+  devOps,
+  design
 }
