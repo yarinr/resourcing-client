@@ -25,15 +25,23 @@
       >
       <span class="views-count">{{ tutorial.views }} Views</span>
       <span class="comments-count"
-        ><button class="clickable btn">
+        ><button class="clickable btn" (click)="toggleComments()">
           {{ [tutorial.comments].length }} Comments
-        </button></span
-      >
+        </button>
+      </span>
+      <span>
+        <button class="clickable btn" click="toggleAddComment()">
+          <i class="material-icons">comment</i>
+        </button>
+      </span>
       <span>
         <button class="tag" mat-button *ngFor="let tag of tutorial.tags">
           {{ tag }}
         </button>
       </span>
     </mat-card-actions>
+    <div class="comments" *ngIf="showComments">
+      <app-comment-card [comment]="tutorial.comments[0]"></app-comment-card>
+    </div>
   </div>
 </mat-card>

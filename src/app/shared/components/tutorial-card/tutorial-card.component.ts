@@ -8,8 +8,17 @@ import { Tutorial } from "src/app/core/entities/tutorial/model/tutorial.model";
 })
 export class TutorialCardComponent implements OnInit {
   @Input() tutorial: Tutorial;
-
+  public showComments: Boolean = false;
+  public showNewCommentLine: boolean = false;
   constructor() {}
 
   ngOnInit() {}
+
+  toggleComments() {
+    this.showComments = !this.showComments;
+  }
+
+  toggleAddComment() {
+    this.showNewCommentLine = !this.showNewCommentLine;
+  }
 }
