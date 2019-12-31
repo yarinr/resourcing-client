@@ -1,8 +1,6 @@
 import { Topic } from '../model/topics.model';
-import { FakeCategories } from '../../category/mocks/category.mock';
 import { CategoryName } from '../../category/model/category.model';
 export class FakeTopics {
-  private fakeCategories = new FakeCategories();
   public topics: Topic[] = [
     {
       name: 'Java Script',
