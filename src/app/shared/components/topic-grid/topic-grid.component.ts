@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Category } from 'src/app/core/entities/category/model/category.model';
+import { CategoryName } from 'src/app/core/entities/category/model/category.model';
 import { Topic } from 'src/app/core/entities/topics/model/topics.model';
 import { FakeTopics } from 'src/app/core/entities/topics/mocks/topics.mocks';
+import { DataService } from 'src/app/core/services/data/data.service';
 
 @Component({
   selector: 'app-topic-grid',
@@ -9,18 +10,13 @@ import { FakeTopics } from 'src/app/core/entities/topics/mocks/topics.mocks';
   styleUrls: ['./topic-grid.component.less']
 })
 export class TopicGridComponent implements OnInit {
-  @Input() categories: Category[] = [];
+  @Input() categories: CategoryName[] = [];
   @Input() title: string;
   topics: Topic[] = new FakeTopics().topics;
 
-  constructor() {}
+  constructor(private dataService: DataService) {}
 
   ngOnInit() {
-    this.topics = this.topics.filter(
-      topic =>
-        this.categories.findIndex(
-          category => category.name === topic.category.name
-        ) !== -1
-    );
+    this.topics = this.dataService.getTopicsByCategories(this.categories);
   }
 }

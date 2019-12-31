@@ -6,47 +6,47 @@ export class FakeTopics {
     {
       name: 'Java Script',
       icon: 'assets/icons/logo-javascript.svg',
-      category: this.fakeCategories.categories[1]
+      category: this.fakeCategories.categories[0]
     },
     {
       name: 'Python',
       icon: 'assets/icons/logo-python.svg',
-      category: this.fakeCategories.categories[1]
+      category: this.fakeCategories.categories[0]
     },
     {
       name: 'C++',
       icon: 'assets/icons/logo-c-plus-plus.svg',
-      category: this.fakeCategories.categories[1]
+      category: this.fakeCategories.categories[0]
     },
     {
       name: 'React',
       icon: 'assets/icons/logo-react.svg',
-      category: this.fakeCategories.categories[1]
+      category: this.fakeCategories.categories[0]
     },
     {
       name: 'Git',
       icon: 'assets/icons/logo-git.svg',
-      category: this.fakeCategories.categories[1]
+      category: this.fakeCategories.categories[0]
     },
     {
       name: 'C#',
       icon: 'assets/icons/logo-c-sharp.svg',
-      category: this.fakeCategories.categories[1]
+      category: this.fakeCategories.categories[0]
     },
     {
       name: 'Jenkins',
       icon: 'assets/icons/logo-jenkins.svg',
-      category: this.fakeCategories.categories[2]
+      category: this.fakeCategories.categories[1]
     },
     {
       name: 'Puppet',
       icon: 'assets/icons/logo-puppet.svg',
-      category: this.fakeCategories.categories[2]
+      category: this.fakeCategories.categories[1]
     },
     {
       name: 'Ansible',
       icon: 'assets/icons/logo-ansible.svg',
-      category: this.fakeCategories.categories[2]
+      category: this.fakeCategories.categories[1]
     }
   ];
 }

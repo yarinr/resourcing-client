@@ -1,9 +1,9 @@
 export interface Category {
-  name: CatageryName;
+  name: CategoryName;
   icon;
 }
 
-export enum CatageryName {
+export enum CategoryName {
   programming,
   devOps,
   design

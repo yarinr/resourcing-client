@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FakeTopics } from 'src/app/core/entities/topics/mocks/topics.mocks';
-import { Topic } from 'src/app/core/entities/topics/model/topics.model';
-import { Category } from 'src/app/core/entities/category/model/category.model';
+import { CategoryName } from 'src/app/core/entities/category/model/category.model';
 import { FakeCategories } from 'src/app/core/entities/category/mocks/category.mock';
 
 @Component({
@@ -11,7 +9,9 @@ import { FakeCategories } from 'src/app/core/entities/category/mocks/category.mo
 })
 export class HomePageComponent implements OnInit {
   constructor() {}
-  allCategories: Category[] = new FakeCategories().categories;
+  allCategories: CategoryName[] = new FakeCategories().categories.map(
+    category => category.name
+  );
   title = 'Home Page';
   ngOnInit() {}
 }
