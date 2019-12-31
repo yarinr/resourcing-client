@@ -7,21 +7,12 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    MatToolbarModule,
-    MatMenuModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatToolbarModule,
-    MatMenuModule,
-    MatButtonModule,
-    MatTableModule,
-    MatSortModule
-  ],
+  imports: [CommonModule],
   exports: [
     MatToolbarModule,
     MatMenuModule,
@@ -32,7 +23,9 @@ import { MatInputModule } from '@angular/material/input';
     MatMenuModule,
     MatButtonModule,
     MatTableModule,
-    MatSortModule
+    MatSortModule,
+    MatCardModule,
+    MatGridListModule
   ]
 })
 export class MaterialModule {}

@@ -10,6 +10,18 @@
     </form>
   </div>
   <div class="topic-cards">
-    topic cards place holder
+    <mat-grid-list cols="3" rowHeight="2:1">
+      <mat-grid-tile *ngFor="let topic of topics">
+        <a class="topic-card" href="#">
+          <mat-card>
+            <span
+              ><img class="topic-thumbnail" src="{{ topic.icon }}" />{{
+                topic.name
+              }}</span
+            ></mat-card
+          >
+        </a>
+      </mat-grid-tile>
+    </mat-grid-list>
   </div>
 </div>

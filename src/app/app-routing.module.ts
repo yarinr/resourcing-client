@@ -9,7 +9,7 @@ import { ProgramingLinksPageComponent } from './feature/programing-links/program
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
-  { path: 'programing', component: ProgramingLinksPageComponent },
+  { path: 'programming', component: ProgramingLinksPageComponent },
   { path: 'devOps', component: DevOpsLinksPageComponent },
   { path: 'LeaderBoard', component: LeaderBoardComponent },
   { path: 'admin', component: AdminPageComponent },
