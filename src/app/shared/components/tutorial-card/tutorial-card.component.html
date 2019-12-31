@@ -2,14 +2,14 @@
   <div class="vote">
     <button mat-raised-button>
       <i class="material-icons">keyboard_arrow_up</i>
-      <div class="votes">107</div>
+      <div class="votes">{{ tutorial.upVote }}</div>
     </button>
   </div>
   <div>
     <mat-card-header class="tutorial-desc">
       <mat-card-title>
-        tutorial short description
-        <span class="source-url">(original.source)</span>
+        {{ tutorial.name }}
+        <span class="source-url">({{ tutorial.url }})</span>
       </mat-card-title>
     </mat-card-header>
     <mat-card-actions class="actions-bar">
@@ -20,20 +20,19 @@
       </span>
       <span class="submitter"
         >Submitted by<button class="clickable btn">
-          theUserName
+          {{ tutorial.submitter.userName }}
         </button></span
       >
-      <span class="views-count">39.6k+ views</span>
+      <span class="views-count">{{ tutorial.views }} Views</span>
       <span class="comments-count"
-        ><button class="clickable btn">6 Comments</button></span
+        ><button class="clickable btn">
+          {{ [tutorial.comments].length }} Comments
+        </button></span
       >
       <span>
-        <button class="tag" mat-button>tag</button>
-        <button class="tag" mat-button>tag</button>
-        <button class="tag" mat-button>tag</button>
-        <button class="tag" mat-button>tag</button>
-        <button class="tag" mat-button>tag</button>
-        <button class="tag" mat-button>tag</button>
+        <button class="tag" mat-button *ngFor="let tag of tutorial.tags">
+          {{ tag }}
+        </button>
       </span>
     </mat-card-actions>
   </div>
