@@ -14,7 +14,7 @@ export class DataService {
 categories : Categories   */
   public getTopicsByCategories(categories: CategoryName[]): Topic[] {
     return this.fakeTopics.topics.filter(topic =>
-      categories.includes(topic.category.name)
+      categories.includes(topic.category)
     );
   }
 }
