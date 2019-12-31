@@ -13,7 +13,7 @@ import {
 export class ProgramingLinksPageComponent implements OnInit {
   constructor() {}
   programingCategories: Category[] = new FakeCategories().categories.filter(
-    categiry => (categiry.name = CatageryName.programming)
+    categiry => categiry.name === CatageryName.programming
   );
   title = 'Programming Topics';
   ngOnInit() {}

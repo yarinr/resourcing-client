@@ -13,9 +13,14 @@ export class TopicGridComponent implements OnInit {
   @Input() title: string;
   topics: Topic[] = new FakeTopics().topics;
 
-  constructor() {
-    this.topics.filter(topic => this.categories.includes(topic.category));
-  }
+  constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.topics = this.topics.filter(
+      topic =>
+        this.categories.findIndex(
+          category => category.name === topic.category.name
+        ) !== -1
+    );
+  }
 }

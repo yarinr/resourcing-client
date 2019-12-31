@@ -32,6 +32,21 @@ export class FakeTopics {
       name: 'C#',
       icon: 'assets/icons/logo-c-sharp.svg',
       category: this.fakeCategories.categories[1]
+    },
+    {
+      name: 'Jenkins',
+      icon: 'assets/icons/logo-jenkins.svg',
+      category: this.fakeCategories.categories[2]
+    },
+    {
+      name: 'Puppet',
+      icon: 'assets/icons/logo-puppet.svg',
+      category: this.fakeCategories.categories[2]
+    },
+    {
+      name: 'Ansible',
+      icon: 'assets/icons/logo-ansible.svg',
+      category: this.fakeCategories.categories[2]
     }
   ];
 }
