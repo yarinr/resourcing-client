@@ -8,7 +8,7 @@ import { CategoryName } from 'src/app/core/entities/category/model/category.mode
 })
 export class DevOpsLinksPageComponent implements OnInit {
   constructor() {}
-  programingCategories: CategoryName[] = [CategoryName.devOps];
+  devOpsCategories: CategoryName[] = [CategoryName.devOps];
   title = 'DevOps Topics';
   ngOnInit() {}
 }
