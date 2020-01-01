@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CategoryName } from 'src/app/core/entities/category/model/category.model';
 import { FakeCategories } from 'src/app/core/entities/category/mocks/category.mock';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.less']
+  styleUrls: ['./home-page.component.less'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomePageComponent implements OnInit {
   constructor() {}

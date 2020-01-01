@@ -1,22 +1,28 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  ChangeDetectionStrategy
+} from '@angular/core';
 import { CategoryName } from 'src/app/core/entities/category/model/category.model';
-import { Topic } from 'src/app/core/entities/topics/model/topics.model';
-import { FakeTopics } from 'src/app/core/entities/topics/mocks/topics.mocks';
 import { DataService } from 'src/app/core/services/data/data.service';
+import { map, tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { Topic } from 'src/app/core/entities/topics/model/topics.model';
 
 @Component({
   selector: 'app-topic-grid',
   templateUrl: './topic-grid.component.html',
-  styleUrls: ['./topic-grid.component.less']
+  styleUrls: ['./topic-grid.component.less'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TopicGridComponent implements OnInit {
   @Input() categories: CategoryName[] = [];
   @Input() title: string;
-  topics: Topic[] = new FakeTopics().topics;
-
+  topics$: Observable<Topic[]>;
   constructor(private dataService: DataService) {}
 
   ngOnInit() {
-    this.topics = this.dataService.getTopicsByCategories(this.categories);
+    this.topics$ = this.dataService.getTopicsByCategories(this.categories);
   }
 }

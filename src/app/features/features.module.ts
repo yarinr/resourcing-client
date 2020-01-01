@@ -6,6 +6,7 @@ import { DevOpsLinksPageComponent } from './dev-ops-links-page/dev-ops-links-pag
 import { LeaderBoardComponent } from './leader-board/leader-board.component';
 import { ProgrammingLinksPageComponent } from './programming-links/programming-links-page.component';
 import { SharedModule } from '../shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,6 @@ import { SharedModule } from '../shared/shared.module';
     DevOpsLinksPageComponent,
     LeaderBoardComponent
   ],
-  imports: [CommonModule, SharedModule]
+  imports: [CommonModule, SharedModule, RouterModule]
 })
 export class FeaturesModule {}

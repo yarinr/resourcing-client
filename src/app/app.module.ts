@@ -9,6 +9,7 @@ import { FeaturesModule } from './features/features.module';
 import { SharedModule } from './shared/shared.module';
 import { DataService } from './core/services/data/data.service';
 import { FakeTopics } from './core/entities/topics/mocks/topics.mocks';
+import { FakeTutorials } from './core/entities/tutorial/mocks/tutorial.mock';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +21,7 @@ import { FakeTopics } from './core/entities/topics/mocks/topics.mocks';
     FeaturesModule,
     SharedModule
   ],
-  providers: [DataService, FakeTopics],
+  providers: [DataService, FakeTopics, FakeTutorials],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

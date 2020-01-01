@@ -1,4 +1,4 @@
-<div class="home-container">
+<div class="grid-container">
   <h1 class="page-title">{{ title }}</h1>
   <div class="search-container">
     <form class="search form">
@@ -12,8 +12,8 @@
   </div>
   <div class="topic-cards">
     <mat-grid-list cols="3" rowHeight="2:1">
-      <mat-grid-tile *ngFor="let topic of topics">
-        <a class="topic-card" href="#">
+      <mat-grid-tile *ngFor="let topic of topics$ | async">
+        <a class="topic-card" [routerLink]="['/totorail', topic.name]">
           <mat-card>
             <span
               ><img class="topic-thumbnail" src="{{ topic.icon }}" />{{
