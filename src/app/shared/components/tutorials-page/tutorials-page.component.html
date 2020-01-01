@@ -1,0 +1,14 @@
+<div class="page-title">
+  <img class="topic-thumbnail" src="{{ (topic$ | async).icon }}" /><span
+    class="title-text"
+    >{{ (topic$ | async).name }}</span
+  >
+</div>
+
+<div class="tutorials-container">
+  <div *ngFor="let tutorial of tutorials$ | async">
+    <div class="tutorial-card">
+      <app-tutorial-card [tutorial]="tutorial"></app-tutorial-card>
+    </div>
+  </div>
+</div>

@@ -6,6 +6,7 @@ import { DevOpsLinksPageComponent } from './features/dev-ops-links-page/dev-ops-
 import { LeaderBoardComponent } from './features/leader-board/leader-board.component';
 import { AdminPageComponent } from './features/admin-page/admin-page.component';
 import { ProgrammingLinksPageComponent } from './features/programming-links/programming-links-page.component';
+import { TutorialsPageComponent } from './shared/components/tutorials-page/tutorials-page.component';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'devOps', component: DevOpsLinksPageComponent },
   { path: 'LeaderBoard', component: LeaderBoardComponent },
   { path: 'admin', component: AdminPageComponent },
+  { path: 'totorail/:topic', component: TutorialsPageComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 
