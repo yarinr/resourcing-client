@@ -1,0 +1,47 @@
+<mat-card class="card">
+  <div class="vote">
+    <button mat-raised-button>
+      <i class="material-icons">keyboard_arrow_up</i>
+      <div class="votes">{{ tutorial.upVote }}</div>
+    </button>
+  </div>
+  <div>
+    <mat-card-header class="tutorial-desc">
+      <mat-card-title>
+        {{ tutorial.name }}
+        <span class="source-url">({{ tutorial.url }})</span>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-actions class="actions-bar">
+      <span class="bookmark">
+        <button mat-button>
+          <i class="material-icons">bookmark</i> Bookmark
+        </button>
+      </span>
+      <span class="submitter"
+        >Submitted by<button class="clickable btn">
+          {{ tutorial.submitter.userName }}
+        </button></span
+      >
+      <span class="views-count">{{ tutorial.views }} Views</span>
+      <span class="comments-count"
+        ><button class="clickable btn" (click)="toggleComments()">
+          {{ [tutorial.comments].length }} Comments
+        </button>
+      </span>
+      <span>
+        <button class="clickable btn" click="toggleAddComment()">
+          <i class="material-icons">comment</i>
+        </button>
+      </span>
+      <span>
+        <button class="tag" mat-button *ngFor="let tag of tutorial.tags">
+          {{ tag }}
+        </button>
+      </span>
+    </mat-card-actions>
+    <div class="comments" *ngIf="showComments">
+      <app-comment-card [comment]="tutorial.comments[0]"></app-comment-card>
+    </div>
+  </div>
+</mat-card>

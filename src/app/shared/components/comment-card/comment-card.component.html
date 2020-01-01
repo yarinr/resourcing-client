@@ -1,0 +1,38 @@
+<mat-card class="card">
+  <div>
+    <mat-card-header>
+      <mat-card-title class="user">
+        {{ comment.submmiter.name }}
+        <span class="points"> {{ comment.submmiter.points }} points </span>
+        <span class="date"> ({{ comment.date | date: "dd-MM-yyyy" }}) </span>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="content">
+      <p>
+        {{ comment.content }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions class="actions-bar">
+      <span>
+        <button class="dislike clickable" mat-button>
+          <i class="material-icons">thumb_down</i>
+          {{ comment.downVote }}
+        </button>
+        <button class="like clickable" mat-button>
+          <i class="material-icons">thumb_up</i>
+          {{ comment.upVote }}
+        </button>
+      </span>
+      <span class="reply clickable"
+        ><button mat-button>
+          <i class="material-icons" alt="reply">reply</i>
+        </button>
+      </span>
+    </mat-card-actions>
+    <app-comment-card
+      class="replies"
+      *ngFor="let reply of comment.replies"
+      [comment]="reply"
+    ></app-comment-card>
+  </div>
+</mat-card>
