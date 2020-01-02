@@ -8,10 +8,15 @@
   <div>
     <mat-card-header class="tutorial-desc">
       <mat-card-title>
-        {{ tutorial.name }}
+        <a href="{{ tutorial.url }}" target="_blank">
+          {{ tutorial.name }}
+        </a>
         <span class="source-url">({{ tutorial.url }})</span>
       </mat-card-title>
     </mat-card-header>
+    <mat-card-content>
+      <div class="desc">{{ tutorial.description }}</div>
+    </mat-card-content>
     <mat-card-actions class="actions-bar">
       <span class="bookmark">
         <button mat-button>
