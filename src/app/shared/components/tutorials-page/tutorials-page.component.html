@@ -4,9 +4,47 @@
     >{{ (topic$ | async).name }}</span
   >
 </div>
-
+<mat-card class="filter-container">
+  <div class="filter-fields">
+    <div class="filter-header bottom-border">Tutorial Filter</div>
+    <div class="filter-header">Video/Text</div>
+    <div class="checkbox-aria">
+      <mat-checkbox
+        [(ngModel)]="video"
+        [ngModelOptions]="{ standalone: true }"
+        (change)="getEnabledTags()"
+        >video</mat-checkbox
+      >
+      <mat-checkbox
+        [(ngModel)]="bookOrText"
+        [ngModelOptions]="{ standalone: true }"
+        (change)="getEnabledTags()"
+        >books/text</mat-checkbox
+      >
+    </div>
+    <div class="filter-header">Level</div>
+    <div class="checkbox-aria">
+      <mat-checkbox
+        [(ngModel)]="beginners"
+        [ngModelOptions]="{ standalone: true }"
+        (change)="getEnabledTags()"
+        >beginners</mat-checkbox
+      >
+      <mat-checkbox
+        [(ngModel)]="advanced"
+        [ngModelOptions]="{ standalone: true }"
+        (change)="getEnabledTags()"
+        >advanced</mat-checkbox
+      >
+    </div>
+  </div>
+</mat-card>
 <div class="tutorials-container">
-  <div *ngFor="let tutorial of tutorials$ | async">
+  <div
+    *ngFor="
+      let tutorial of tutorials$ | async | tagFilter: enabledTags as tutorials
+    "
+  >
     <div class="tutorial-card">
       <app-tutorial-card [tutorial]="tutorial"></app-tutorial-card>
     </div>
