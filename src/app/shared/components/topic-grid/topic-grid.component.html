@@ -4,7 +4,13 @@
     <form class="search form">
       <span>
         <mat-form-field class="search-field">
-          <input matInput placeholder="Enter a search term here" value="" />
+          <input
+            matInput
+            placeholder="Enter a search term here"
+            value=""
+            [(ngModel)]="search"
+            [ngModelOptions]="{ standalone: true }"
+          />
         </mat-form-field>
         <i class="material-icons icon">search</i>
       </span>
@@ -12,7 +18,9 @@
   </div>
   <div class="topic-cards">
     <mat-grid-list cols="3" rowHeight="2:1">
-      <mat-grid-tile *ngFor="let topic of topics$ | async">
+      <mat-grid-tile
+        *ngFor="let topic of topics$ | async | filter: search as topics"
+      >
         <a class="topic-card" [routerLink]="['/totorail', topic.name]">
           <mat-card>
             <span
