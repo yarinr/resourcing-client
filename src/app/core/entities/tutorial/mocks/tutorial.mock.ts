@@ -48,11 +48,11 @@ export class FakeTutorials {
       downVote: 2,
       comments: this.fakeComments.comments,
       date: new Date(),
-      tags: ["python", "beginners"],
+      tags: ["python", "beginners", "video"],
       views: 10
     },
     {
-      id: "1",
+      id: "2",
       name: "python for advanced users",
       description: "learn how to bla bla bla",
       url: "https://www.python.org/",
@@ -65,7 +65,7 @@ export class FakeTutorials {
       downVote: 2,
       comments: this.fakeComments.comments,
       date: new Date(),
-      tags: ["python", "advanced"],
+      tags: ["python", "advanced", "book"],
       views: 10
     }
   ];
