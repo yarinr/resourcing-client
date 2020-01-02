@@ -10,6 +10,7 @@ import { SharedModule } from './shared/shared.module';
 import { DataService } from './core/services/data/data.service';
 import { FakeTopics } from './core/entities/topics/mocks/topics.mocks';
 import { FakeTutorials } from './core/entities/tutorial/mocks/tutorial.mock';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +20,8 @@ import { FakeTutorials } from './core/entities/tutorial/mocks/tutorial.mock';
     BrowserAnimationsModule,
     CoreModule,
     FeaturesModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ],
   providers: [DataService, FakeTopics, FakeTutorials],
   bootstrap: [AppComponent]

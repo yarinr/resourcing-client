@@ -6,7 +6,6 @@ import {
 } from '@angular/core';
 import { CategoryName } from 'src/app/core/entities/category/model/category.model';
 import { DataService } from 'src/app/core/services/data/data.service';
-import { map, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Topic } from 'src/app/core/entities/topics/model/topics.model';
 
@@ -19,6 +18,8 @@ import { Topic } from 'src/app/core/entities/topics/model/topics.model';
 export class TopicGridComponent implements OnInit {
   @Input() categories: CategoryName[] = [];
   @Input() title: string;
+  public search = '';
+
   topics$: Observable<Topic[]>;
   constructor(private dataService: DataService) {}
 
