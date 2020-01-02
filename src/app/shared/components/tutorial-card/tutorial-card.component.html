@@ -1,6 +1,6 @@
 <mat-card class="card">
   <div class="vote">
-    <button mat-raised-button>
+    <button mat-raised-button (click)="upvoteTutorial(tutorial.id)">
       <i class="material-icons">keyboard_arrow_up</i>
       <div class="votes">{{ tutorial.upVote }}</div>
     </button>
@@ -8,10 +8,19 @@
   <div>
     <mat-card-header class="tutorial-desc">
       <mat-card-title>
-        {{ tutorial.name }}
+        <a
+          href="{{ tutorial.url }}"
+          target="_blank"
+          (click)="addView(tutorial.id)"
+        >
+          {{ tutorial.name }}
+        </a>
         <span class="source-url">({{ tutorial.url }})</span>
       </mat-card-title>
     </mat-card-header>
+    <mat-card-content>
+      <div class="desc">{{ tutorial.description }}</div>
+    </mat-card-content>
     <mat-card-actions class="actions-bar">
       <span class="bookmark">
         <button mat-button>
@@ -41,7 +50,10 @@
       </span>
     </mat-card-actions>
     <div class="comments" *ngIf="showComments">
-      <app-comment-card [comment]="tutorial.comments[0]"></app-comment-card>
+      <app-comment-card
+        *ngFor="let comment of tutorial.comments"
+        [comment]="comment"
+      ></app-comment-card>
     </div>
   </div>
 </mat-card>

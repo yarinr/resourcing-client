@@ -14,11 +14,11 @@
     </mat-card-content>
     <mat-card-actions class="actions-bar">
       <span>
-        <button class="dislike clickable" mat-button>
+        <button class="dislike clickable" (click)="dislikeComment()" mat-button>
           <i class="material-icons">thumb_down</i>
           {{ comment.downVote }}
         </button>
-        <button class="like clickable" mat-button>
+        <button class="like clickable" (click)="likeComment()" mat-button>
           <i class="material-icons">thumb_up</i>
           {{ comment.upVote }}
         </button>

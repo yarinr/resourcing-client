@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { Comment } from "../../../core/entities/tutorial/model/tutorial.model";
+import { DataService } from "src/app/core/services/data/data.service";
 
 @Component({
   selector: "app-comment-card",
@@ -10,7 +11,15 @@ export class CommentCardComponent implements OnInit {
   @Input()
   comment: Comment;
 
-  constructor() {}
+  constructor(private dataService: DataService) {}
 
   ngOnInit() {}
+
+  likeComment() {
+    this.dataService.likeComment(this.comment.id);
+  }
+
+  dislikeComment() {
+    this.dataService.dislikeComment(this.comment.id);
+  }
 }
