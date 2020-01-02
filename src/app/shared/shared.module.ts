@@ -8,6 +8,7 @@ import { CommentCardComponent } from './components/comment-card/comment-card.com
 import { TutorialsPageComponent } from './components/tutorials-page/tutorials-page.component';
 import { RouterModule } from '@angular/router';
 import { FilterPipe } from './pipes/filter-pipe/filter.pipe';
+import { TagFilterPipe } from './pipes/tags-pipe/tags.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FilterPipe } from './pipes/filter-pipe/filter.pipe';
     TopicGridComponent,
     CommentCardComponent,
     TutorialsPageComponent,
-    FilterPipe
+    FilterPipe,
+    TagFilterPipe
   ],
   imports: [
     CommonModule,
@@ -33,6 +35,6 @@ import { FilterPipe } from './pipes/filter-pipe/filter.pipe';
     CommentCardComponent,
     TutorialsPageComponent
   ],
-  providers: [FilterPipe]
+  providers: [FilterPipe, TagFilterPipe]
 })
 export class SharedModule {}

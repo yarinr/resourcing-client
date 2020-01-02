@@ -9,6 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [],
@@ -25,7 +26,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatTableModule,
     MatSortModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    MatCheckboxModule
   ]
 })
 export class MaterialModule {}
