@@ -12,14 +12,14 @@
       <mat-checkbox
         [(ngModel)]="video"
         [ngModelOptions]="{ standalone: true }"
-        (change)="getEnabledTags()"
-        >video</mat-checkbox
+        (change)="toggleTags('video')"
+        >video({{ (tagsCount$ | async).get('video') }})</mat-checkbox
       >
       <mat-checkbox
         [(ngModel)]="bookOrText"
         [ngModelOptions]="{ standalone: true }"
-        (change)="getEnabledTags()"
-        >books/text</mat-checkbox
+        (change)="toggleTags('book')"
+        >books/text({{ (tagsCount$ | async).get('book') }})</mat-checkbox
       >
     </div>
     <div class="filter-header">Level</div>
@@ -27,14 +27,23 @@
       <mat-checkbox
         [(ngModel)]="beginners"
         [ngModelOptions]="{ standalone: true }"
-        (change)="getEnabledTags()"
-        >beginners</mat-checkbox
+        (change)="toggleTags('beginners')"
+        >beginners({{ (tagsCount$ | async).get('beginners') }})</mat-checkbox
       >
       <mat-checkbox
         [(ngModel)]="advanced"
         [ngModelOptions]="{ standalone: true }"
-        (change)="getEnabledTags()"
-        >advanced</mat-checkbox
+        (change)="toggleTags('advanced')"
+        >advanced({{ (tagsCount$ | async).get('advanced') }})</mat-checkbox
+      >
+    </div>
+    <div class="filter-header">Other</div>
+    <div
+      class="checkbox-aria"
+      *ngFor="let tag of otherTagsCount$ | async | keyvalue"
+    >
+      <mat-checkbox (change)="toggleTags(tag.key)"
+        >{{ tag.key }}({{ tag.value }})</mat-checkbox
       >
     </div>
   </div>
