@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map, flatMap, reduce, tap } from 'rxjs/operators';
 import { DataService } from 'src/app/core/services/data/data.service';
+import { Key } from 'protractor';
 
 @Component({
   selector: 'app-tutorials-page',
@@ -31,16 +32,24 @@ export class TutorialsPageComponent implements OnInit {
   );
   tagsCount$ = this.tutorials$.pipe(
     map(tutorials =>
-      tutorials.reduce((acc, tutorial) => {
-        tutorial.tags.forEach(tag => {
-          if (acc.has(tag)) {
-            acc.set(tag, acc.get(tag) + 1);
-          } else {
-            acc.set(tag, 1);
-          }
-        });
-        return acc;
-      }, new Map<string, number>())
+      tutorials.reduce(
+        (acc, tutorial) => {
+          tutorial.tags.forEach(tag => {
+            if (acc.has(tag)) {
+              acc.set(tag, acc.get(tag) + 1);
+            } else {
+              acc.set(tag, 1);
+            }
+          });
+          return acc;
+        },
+        new Map<string, number>([
+          ['book', 0],
+          ['video', 0],
+          ['beginners', 0],
+          ['advanced', 0]
+        ])
+      )
     )
   );
   otherTagsCount$ = this.tagsCount$.pipe(
