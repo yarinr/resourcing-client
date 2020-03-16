@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="page-title">
+    SUBMIT A NEW TUTORIAL
+  </div>
+  <form class="new-tutorial-form">
+    <mat-form-field class="input-field">
+      <input matInput placeholder="enter the tutorial url here" value="" />
+    </mat-form-field>
+    <mat-form-field class="input-field">
+      <input matInput placeholder="enter the category tag here" value="" />
+    </mat-form-field>
+    <div class="raio-button-area">
+      <div class="group-label">
+        Video/Text:
+      </div>
+      <mat-radio-group class="raio-button-group" aria-label="Video/Text">
+        <mat-radio-button class="raio-button" value="Video"
+          >Video</mat-radio-button
+        >
+        <mat-radio-button class="raio-button" value="Text"
+          >Text</mat-radio-button
+        >
+      </mat-radio-group>
+    </div>
+    <div class="raio-button-area">
+      <div class="group-label">
+        Level:
+      </div>
+      <mat-radio-group class="raio-button-group" aria-label="Level">
+        <mat-radio-button class="raio-button" value="beginners"
+          >beginners</mat-radio-button
+        >
+        <mat-radio-button class="raio-button" value="advanced"
+          >advanced</mat-radio-button
+        >
+      </mat-radio-group>
+    </div>
+    <button mat-button class="submit-button">Submit</button>
+  </form>
+</div>
