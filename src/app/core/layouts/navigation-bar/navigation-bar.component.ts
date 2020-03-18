@@ -14,8 +14,7 @@ export class NavigationBarComponent implements OnInit {
   openDialog() {
     console.log('open sesemy');
     const dialogRef = this.dialog.open(NewTutorialDialogComponent, {
-      width: '450px',
-      height: '450px'
+      width: '520px'
     });
     dialogRef.afterClosed().subscribe(data => console.log(data));
   }

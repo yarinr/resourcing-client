@@ -9,6 +9,7 @@ import { TutorialsPageComponent } from './components/tutorials-page/tutorials-pa
 import { RouterModule } from '@angular/router';
 import { FilterPipe } from './pipes/filter-pipe/filter.pipe';
 import { TagFilterPipe } from './pipes/tags-pipe/tags.pipe';
+import { UrlValidationDirective } from './directives/newTopicIputValidation/url-validation.directive';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { TagFilterPipe } from './pipes/tags-pipe/tags.pipe';
     CommentCardComponent,
     TutorialsPageComponent,
     FilterPipe,
-    TagFilterPipe
+    TagFilterPipe,
+    UrlValidationDirective
   ],
   imports: [
     CommonModule,
