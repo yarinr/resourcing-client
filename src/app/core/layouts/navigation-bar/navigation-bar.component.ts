@@ -12,7 +12,6 @@ export class NavigationBarComponent implements OnInit {
 
   ngOnInit() {}
   openDialog() {
-    console.log('open sesemy');
     const dialogRef = this.dialog.open(NewTutorialDialogComponent, {
       width: '520px'
     });
