@@ -19,7 +19,7 @@
       />
     </mat-form-field>
     <div *ngIf="f.name.invalid && (f.name.dirty || f.name.touched)">
-      <div *ngIf="f.name.errors.required">
+      <div *ngIf="f.name.errors.required" class="error-message">
         required field.
       </div>
     </div>
@@ -35,11 +35,16 @@
       />
     </mat-form-field>
     <div *ngIf="f.url.invalid && (f.url.dirty || f.url.touched)">
-      <div *ngIf="f.url.errors.required; else invalidInput">
+      <div
+        *ngIf="f.url.errors.required; else invalidInput"
+        class="error-message"
+      >
         required field.
       </div>
       <ng-template #invalidInput>
-        please Enter a valid Url or Unc.
+        <span class="error-message">
+          please Enter a valid Url or Unc.
+        </span>
       </ng-template>
     </div>
     <mat-form-field class="input-field">
@@ -76,7 +81,7 @@
       </button>
     </span>
     <div *ngIf="submitClicked">
-      <div *ngIf="noCatagoryTagSelected">
+      <div *ngIf="noCatagoryTagSelected" class="error-message">
         required field.
       </div>
     </div>
@@ -104,16 +109,16 @@
         class="raio-button-group"
         aria-label="Video/Text"
       >
-        <mat-radio-button class="raio-button" value="Video" required
+        <mat-radio-button class="raio-button" value="video" required
           >Video</mat-radio-button
         >
-        <mat-radio-button class="raio-button" value="Text" required
+        <mat-radio-button class="raio-button" value="book" required
           >Text</mat-radio-button
         >
       </mat-radio-group>
     </div>
     <div *ngIf="submitClicked">
-      <div *ngIf="f.videoOrText.errors?.required">
+      <div *ngIf="f.videoOrText.errors?.required" class="error-message">
         required field.
       </div>
     </div>
@@ -135,7 +140,7 @@
       </mat-radio-group>
     </div>
     <div *ngIf="submitClicked">
-      <div *ngIf="f.level.errors?.required">
+      <div *ngIf="f.level.errors?.required" class="error-message">
         required field.
       </div>
     </div>
