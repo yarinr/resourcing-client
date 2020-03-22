@@ -1,0 +1,149 @@
+<div class="container">
+  <div class="page-title">
+    SUBMIT A NEW TUTORIAL
+  </div>
+  <form
+    [formGroup]="newTutorialForm"
+    (ngSubmit)="onSubmit(newTutorialForm.value)"
+    class="new-tutorial-form"
+  >
+    <mat-form-field class="input-field">
+      <input
+        matInput
+        placeholder="enter the tutorial name here"
+        value=""
+        class="form-control"
+        formControlName="name"
+        id="name"
+        required
+      />
+    </mat-form-field>
+    <div *ngIf="f.name.invalid && (f.name.dirty || f.name.touched)">
+      <div *ngIf="f.name.errors.required" class="error-message">
+        required field.
+      </div>
+    </div>
+    <mat-form-field class="input-field">
+      <input
+        matInput
+        placeholder="enter the tutorial url here"
+        value=""
+        class="form-control"
+        formControlName="url"
+        id="url"
+        required
+      />
+    </mat-form-field>
+    <div *ngIf="f.url.invalid && (f.url.dirty || f.url.touched)">
+      <div
+        *ngIf="f.url.errors.required; else invalidInput"
+        class="error-message"
+      >
+        required field.
+      </div>
+      <ng-template #invalidInput>
+        <span class="error-message">
+          please Enter a valid Url or Unc.
+        </span>
+      </ng-template>
+    </div>
+    <mat-form-field class="input-field">
+      <input
+        matInput
+        placeholder="enter the description here (optional)"
+        value=""
+        class="form-control"
+        formControlName="description"
+      />
+    </mat-form-field>
+    <span>
+      <mat-form-field class="input-field category-input">
+        <input
+          matInput
+          placeholder="enter the category tag here"
+          formControlName="category"
+          value=""
+          [matAutocomplete]="auto"
+        />
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let tag of filteredTags$ | async" [value]="tag">
+            {{ tag }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <button
+        mat-button
+        type="button"
+        class="add-button"
+        (click)="addCategoryTag()"
+      >
+        Add
+      </button>
+    </span>
+    <div *ngIf="submitClicked">
+      <div *ngIf="noCatagoryTagSelected" class="error-message">
+        required field.
+      </div>
+    </div>
+    <div *ngIf="categoryTags.size" class="added-tags-area">
+      <div *ngFor="let categoryTag of categoryTags">
+        <mat-card class="added-tag-card">
+          <span>
+            {{ categoryTag }}
+            <i
+              class="material-icons icon"
+              (click)="deleteCategoryTag(categoryTag)"
+              >close</i
+            ></span
+          >
+        </mat-card>
+      </div>
+    </div>
+
+    <div class="radio-button-area">
+      <div class="group-label">
+        Video/Text:
+      </div>
+      <mat-radio-group
+        formControlName="videoOrText"
+        class="radio-button-group"
+        aria-label="Video/Text"
+      >
+        <mat-radio-button class="radio-button" value="video" required
+          >Video</mat-radio-button
+        >
+        <mat-radio-button class="radio-button" value="book" required
+          >Text</mat-radio-button
+        >
+      </mat-radio-group>
+    </div>
+    <div *ngIf="submitClicked">
+      <div *ngIf="f.videoOrText.errors?.required" class="error-message">
+        required field.
+      </div>
+    </div>
+    <div class="radio-button-area">
+      <div class="group-label">
+        Level:
+      </div>
+      <mat-radio-group
+        class="radio-button-group"
+        formControlName="level"
+        aria-label="Level"
+      >
+        <mat-radio-button class="radio-button" value="beginners" required
+          >beginners</mat-radio-button
+        >
+        <mat-radio-button class="radio-button" value="advanced" required
+          >advanced</mat-radio-button
+        >
+      </mat-radio-group>
+    </div>
+    <div *ngIf="submitClicked">
+      <div *ngIf="f.level.errors?.required" class="error-message">
+        required field.
+      </div>
+    </div>
+    <button mat-button class="submit-button">Submit</button>
+  </form>
+</div>

@@ -8,3 +8,5 @@ export enum CategoryName {
   devOps,
   design
 }
+
+export const defaultTags = ['video', 'book', 'beginners', 'advanced'];

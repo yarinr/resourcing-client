@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { FakeTopics } from '../../entities/topics/mocks/topics.mocks';
-import { CategoryName } from '../../entities/category/model/category.model';
+import {
+  CategoryName,
+  defaultTags
+} from '../../entities/category/model/category.model';
 import { Topic } from '../../entities/topics/model/topics.model';
 import { of, Observable } from 'rxjs';
 import {
@@ -40,6 +43,19 @@ export class DataService {
         tutorial.tags.some(tag => tag.toLowerCase() === topicName.toLowerCase())
       )
     );
+  }
+
+  public getAllTags(): Observable<string[]> {
+    return of(
+      this.fakeTutorials.tutorials
+        .map(tutorial => tutorial.tags)
+        .reduce((acc, val) => acc.concat(val), [])
+        .filter(tag => !defaultTags.includes(tag))
+    );
+  }
+
+  public addNewTutorial(tutorial: Tutorial) {
+    this.fakeTutorials.tutorials.push(tutorial);
   }
 
   public upvoteTutorial(tutorialId: string) {

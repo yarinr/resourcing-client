@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { map, flatMap, reduce, tap } from 'rxjs/operators';
 import { DataService } from 'src/app/core/services/data/data.service';
 import { Key } from 'protractor';
+import { defaultTags } from 'src/app/core/entities/category/model/category.model';
 
 @Component({
   selector: 'app-tutorials-page',
@@ -20,7 +21,6 @@ export class TutorialsPageComponent implements OnInit {
   beginners = false;
   advanced = false;
   enabledTags = [];
-  defaultTags = ['video', 'book', 'beginners', 'advanced'];
 
   topic$ = this.route.params.pipe(
     map(param => (param as { topic: string }).topic),
@@ -54,7 +54,7 @@ export class TutorialsPageComponent implements OnInit {
   );
   otherTagsCount$ = this.tagsCount$.pipe(
     map(tagsMap => {
-      this.defaultTags.forEach(tag => tagsMap.delete(tag));
+      defaultTags.forEach(tag => tagsMap.delete(tag));
       return tagsMap;
     })
   );

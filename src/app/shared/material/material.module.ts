@@ -10,6 +10,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [],
@@ -27,7 +30,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatSortModule,
     MatCardModule,
     MatGridListModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDialogModule,
+    MatRadioModule,
+    MatAutocompleteModule
   ]
 })
 export class MaterialModule {}

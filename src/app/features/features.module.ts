@@ -7,6 +7,7 @@ import { LeaderBoardComponent } from './leader-board/leader-board.component';
 import { ProgrammingLinksPageComponent } from './programming-links/programming-links-page.component';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
+import { NewTutorialDialogComponent } from './new-tutorial-dialog/new-tutorial-dialog.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { RouterModule } from '@angular/router';
     AdminPageComponent,
     ProgrammingLinksPageComponent,
     DevOpsLinksPageComponent,
-    LeaderBoardComponent
+    LeaderBoardComponent,
+    NewTutorialDialogComponent
   ],
   imports: [CommonModule, SharedModule, RouterModule]
 })
