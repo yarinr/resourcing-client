@@ -14,6 +14,8 @@ import {
   FakeComments
 } from './core/entities/tutorial/mocks/tutorial.mock';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GraphQLModule } from './graphql.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,7 +27,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FeaturesModule,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    GraphQLModule,
+    HttpClientModule
   ],
   providers: [DataService, FakeTopics, FakeTutorials, FakeComments],
   bootstrap: [AppComponent]
