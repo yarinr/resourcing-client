@@ -1,5 +1,16 @@
 <div class="container">
+  <!-- <app-navigation-bar (toggleSideBarForMe)="sideBarToggler($event)"></app-navigation-bar> -->
   <app-navigation-bar></app-navigation-bar>
-  <router-outlet></router-outlet>
+
+  <mat-drawer-container>
+    <!-- <mat-drawer mode="side" [opened]="sideBarOpen"> -->
+    <mat-drawer mode="side" opened>
+      <app-side-bar></app-side-bar>
+    </mat-drawer>
+    <mat-drawer-content>
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>
+
   <app-footer class="footer"></app-footer>
 </div>
