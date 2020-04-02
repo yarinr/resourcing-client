@@ -86,14 +86,19 @@ export class AdminPageComponent implements OnInit {
     "actions"
   ];
   pendingTutorials = new MatTableDataSource<RequestedTutorial>(TUTORIAL_DATA);
+  tutorialTableName = "Pending Tutorials :";
 
   topicDisplayedColumns: string[] = ["name", "icon", "category", "actions"];
   pendingTopics = new MatTableDataSource<RequestedTopic>(TOPIC_DATA);
+  topicTableName = "Pending Topics :";
 
   tagDisplayedColumns: string[] = ["name", "actions"];
   pendingTags = new MatTableDataSource<RequestedTag>(TAG_DATA);
+  tagTableName = "Pending Tags :";
 
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatPaginator, { static: true }) tutorialPaginator: MatPaginator;
+  @ViewChild(MatPaginator, { static: true }) topicPaginator: MatPaginator;
+  @ViewChild(MatPaginator, { static: true }) tagPaginator: MatPaginator;
 
   constructor(private adminDashboardService: AdminService) {}
 
@@ -101,6 +106,8 @@ export class AdminPageComponent implements OnInit {
     this.areaWidgetOptions.data = this.adminDashboardService.bigChart();
     this.pieWidgetOptions.data = this.adminDashboardService.pieChart();
 
-    this.pendingTutorials.paginator = this.paginator;
+    this.pendingTutorials.paginator = this.tutorialPaginator;
+    this.pendingTopics.paginator = this.topicPaginator;
+    this.pendingTags.paginator = this.tagPaginator;
   }
 }
