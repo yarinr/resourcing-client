@@ -10,6 +10,9 @@ import { RouterModule } from "@angular/router";
 import { NewTutorialDialogComponent } from "./new-tutorial-dialog/new-tutorial-dialog.component";
 import { DesignLinksPageComponent } from "./design-links-page/design-links-page.component";
 import { MatDividerModule } from "@angular/material/divider";
+import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatTableModule } from "@angular/material/table";
+import { MatIconModule } from "@angular/material/icon";
 @NgModule({
   declarations: [
     HomePageComponent,
@@ -20,6 +23,14 @@ import { MatDividerModule } from "@angular/material/divider";
     NewTutorialDialogComponent,
     DesignLinksPageComponent
   ],
-  imports: [CommonModule, SharedModule, RouterModule, MatDividerModule]
+  imports: [
+    CommonModule,
+    SharedModule,
+    RouterModule,
+    MatDividerModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatIconModule
+  ]
 })
 export class FeaturesModule {}
