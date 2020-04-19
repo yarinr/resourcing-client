@@ -13,6 +13,12 @@ import { MatDividerModule } from "@angular/material/divider";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatTableModule } from "@angular/material/table";
 import { MatIconModule } from "@angular/material/icon";
+import { NewAdminDialogComponent } from "./new-admin-dialog/new-admin-dialog.component";
+import { NewTagDialogComponent } from "./new-tag-dialog/new-tag-dialog.component";
+import { NewTopicDialogComponent } from "./new-topic-dialog/new-topic-dialog.component";
+import { MatSelectModule } from "@angular/material/select";
+import { MaterialFileInputModule } from "ngx-material-file-input";
+
 @NgModule({
   declarations: [
     HomePageComponent,
@@ -21,6 +27,9 @@ import { MatIconModule } from "@angular/material/icon";
     DevOpsLinksPageComponent,
     LeaderBoardComponent,
     NewTutorialDialogComponent,
+    NewAdminDialogComponent,
+    NewTagDialogComponent,
+    NewTopicDialogComponent,
     DesignLinksPageComponent
   ],
   imports: [
@@ -30,7 +39,9 @@ import { MatIconModule } from "@angular/material/icon";
     MatDividerModule,
     MatPaginatorModule,
     MatTableModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule,
+    MaterialFileInputModule
   ]
 })
 export class FeaturesModule {}

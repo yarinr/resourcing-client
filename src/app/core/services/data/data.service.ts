@@ -1,20 +1,21 @@
-import { Injectable } from '@angular/core';
-import { FakeTopics } from '../../entities/topics/mocks/topics.mocks';
+import { Injectable } from "@angular/core";
+import { FakeTopics } from "../../entities/topics/mocks/topics.mocks";
 import {
   CategoryName,
   defaultTags
-} from '../../entities/category/model/category.model';
-import { Topic } from '../../entities/topics/model/topics.model';
-import { of, Observable } from 'rxjs';
+} from "../../entities/category/model/category.model";
+import { Topic } from "../../entities/topics/model/topics.model";
+import { of, Observable } from "rxjs";
 import {
   FakeTutorials,
   FakeComments
-} from '../../entities/tutorial/mocks/tutorial.mock';
-import { Tutorial } from '../../entities/tutorial/model/tutorial.model';
-import { Comment } from '../../entities/tutorial/model/tutorial.model';
+} from "../../entities/tutorial/mocks/tutorial.mock";
+import { Tutorial } from "../../entities/tutorial/model/tutorial.model";
+import { Comment } from "../../entities/tutorial/model/tutorial.model";
+import { User } from "../../models/user";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class DataService {
   constructor(
@@ -56,6 +57,19 @@ export class DataService {
 
   public addNewTutorial(tutorial: Tutorial) {
     this.fakeTutorials.tutorials.push(tutorial);
+  }
+
+  public addNewTopic(topic: Topic) {
+    // TODO: when connected to real data, create a new topic.
+    this.fakeTopics.topics.push(topic);
+  }
+
+  public addNewTag(name: string) {
+    // TODO: when connected to real data, create a new tag.
+  }
+
+  public addAdmin(userName: string) {
+    // TODO: when connected to real data, create a new user.
   }
 
   public upvoteTutorial(tutorialId: string) {

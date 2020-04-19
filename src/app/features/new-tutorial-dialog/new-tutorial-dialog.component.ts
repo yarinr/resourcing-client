@@ -1,22 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, OnInit } from "@angular/core";
+import { MatDialogRef } from "@angular/material/dialog";
 import {
   FormBuilder,
   FormGroup,
   FormControl,
   Validators
-} from '@angular/forms';
-import { urlValidator } from 'src/app/shared/directives/newTopicIputValidation/url-validation.directive';
-import { DataService } from 'src/app/core/services/data/data.service';
-import { map, startWith, filter } from 'rxjs/operators';
-import { Observable, combineLatest } from 'rxjs';
-import { Tutorial } from 'src/app/core/entities/tutorial/model/tutorial.model';
-import { v4 as uuid } from 'uuid';
+} from "@angular/forms";
+import { urlValidator } from "src/app/shared/directives/newTopicIputValidation/url-validation.directive";
+import { DataService } from "src/app/core/services/data/data.service";
+import { map, filter } from "rxjs/operators";
+import { Observable, combineLatest } from "rxjs";
+import { Tutorial } from "src/app/core/entities/tutorial/model/tutorial.model";
+import { v4 as uuid } from "uuid";
 
 @Component({
-  selector: 'app-new-tutorial-dialog',
-  templateUrl: './new-tutorial-dialog.component.html',
-  styleUrls: ['./new-tutorial-dialog.component.less']
+  selector: "app-new-tutorial-dialog",
+  templateUrl: "./new-tutorial-dialog.component.html",
+  styleUrls: ["./new-tutorial-dialog.component.less"]
 })
 export class NewTutorialDialogComponent implements OnInit {
   newTutorialForm: FormGroup;
@@ -32,12 +32,12 @@ export class NewTutorialDialogComponent implements OnInit {
     private dataService: DataService
   ) {
     this.newTutorialForm = this.formBuilder.group({
-      name: new FormControl('', Validators.required),
-      url: new FormControl('', [Validators.required, urlValidator()]),
-      description: '',
-      category: '',
-      level: new FormControl('', Validators.required),
-      videoOrText: new FormControl('', Validators.required)
+      name: new FormControl("", Validators.required),
+      url: new FormControl("", [Validators.required, urlValidator()]),
+      description: "",
+      category: "",
+      level: new FormControl("", Validators.required),
+      videoOrText: new FormControl("", Validators.required)
     });
   }
 
@@ -74,11 +74,11 @@ export class NewTutorialDialogComponent implements OnInit {
   }
 
   addCategoryTag() {
-    if (this.newTutorialForm.get('category').value.trim() !== '') {
-      this.categoryTags.add(this.newTutorialForm.get('category').value.trim());
+    if (this.newTutorialForm.get("category").value.trim() !== "") {
+      this.categoryTags.add(this.newTutorialForm.get("category").value.trim());
       this.noCatagoryTagSelected = false;
     }
-    this.newTutorialForm.get('category').setValue('');
+    this.newTutorialForm.get("category").setValue("");
   }
 
   deleteCategoryTag(categoryTag: string) {
@@ -93,7 +93,7 @@ export class NewTutorialDialogComponent implements OnInit {
       url: newTutorialData.url,
       tags: Array.from(this.categoryTags),
       description: newTutorialData.description,
-      submitter: { userName: 'user', name: 'jon doe', points: 0 },
+      submitter: { userName: "user", name: "jon doe", points: 0 },
       upVote: 0,
       downVote: 0,
       comments: [],

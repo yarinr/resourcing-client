@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="page-title">
+    Create new Topic
+  </div>
+  <form
+    [formGroup]="newTopicForm"
+    (ngSubmit)="onSubmit(newTopicForm.value)"
+    class="new-topic-form"
+  >
+    <mat-form-field class="input-field">
+      <input
+        matInput
+        placeholder="enter topic name here"
+        value=""
+        class="form-control"
+        formControlName="name"
+        id="name"
+        required
+      />
+    </mat-form-field>
+    <div *ngIf="f.name.invalid && (f.name.dirty || f.name.touched)">
+      <div *ngIf="f.name.errors.required" class="error-message">
+        required field.
+      </div>
+    </div>
+
+    <mat-form-field class="input-field">
+      <mat-label>Choose category</mat-label>
+      <mat-select formControlName="category" id="category" required>
+        <mat-option *ngFor="let category of categories" [value]="category">{{
+          category
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div *ngIf="f.category.invalid">
+      <div *ngIf="f.category.errors.required" class="error-message">
+        required field.
+      </div>
+    </div>
+
+    <mat-form-field class="input-field">
+      <ngx-mat-file-input
+        formControlName="icon"
+        placeholder="select topic icon"
+      ></ngx-mat-file-input>
+      <mat-icon matSuffix>folder</mat-icon>
+    </mat-form-field>
+    <button mat-button class="submit-button">Submit</button>
+  </form>
+</div>

@@ -3,6 +3,10 @@ import { MatTableDataSource } from "@angular/material/table";
 import { MatPaginator } from "@angular/material/paginator";
 import { AdminService } from "src/app/core/services/admin/admin.service";
 import { CategoryName } from "src/app/core/entities/category/model/category.model";
+import { MatDialog } from "@angular/material/dialog";
+import { NewTopicDialogComponent } from "../new-topic-dialog/new-topic-dialog.component";
+import { NewTagDialogComponent } from "../new-tag-dialog/new-tag-dialog.component";
+import { NewAdminDialogComponent } from "../new-admin-dialog/new-admin-dialog.component";
 
 export interface RequestedTutorial {
   id: string;
@@ -43,7 +47,11 @@ const TUTORIAL_DATA: RequestedTutorial[] = [
 ];
 
 const TOPIC_DATA: RequestedTopic[] = [
-  { name: "Angular", icon: "angular.io", category: CategoryName.programming },
+  {
+    name: "Angular",
+    icon: "https://img.icons8.com/color/48/000000/angularjs.png",
+    category: CategoryName.programming
+  },
   { name: "React", icon: "react.io", category: CategoryName.programming },
   { name: "Linux", icon: "linux.io", category: CategoryName.devOps },
   { name: "Redis", icon: "redis.io", category: CategoryName.devOps },
@@ -100,7 +108,11 @@ export class AdminPageComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) topicPaginator: MatPaginator;
   @ViewChild(MatPaginator, { static: true }) tagPaginator: MatPaginator;
 
-  constructor(private adminDashboardService: AdminService) {}
+  categories = CategoryName;
+  constructor(
+    private adminDashboardService: AdminService,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit() {
     this.areaWidgetOptions.data = this.adminDashboardService.bigChart();
@@ -110,4 +122,37 @@ export class AdminPageComponent implements OnInit {
     this.pendingTopics.paginator = this.topicPaginator;
     this.pendingTags.paginator = this.tagPaginator;
   }
+
+  openNewTopicDialog() {
+    const dialogRef = this.dialog.open(NewTopicDialogComponent, {
+      width: "520px"
+    });
+    dialogRef.afterClosed().subscribe();
+  }
+
+  openNewTagDialog() {
+    const dialogRef = this.dialog.open(NewTagDialogComponent, {
+      width: "520px"
+    });
+    dialogRef.afterClosed().subscribe();
+  }
+
+  openNewAdminDialog() {
+    const dialogRef = this.dialog.open(NewAdminDialogComponent, {
+      width: "520px"
+    });
+    dialogRef.afterClosed().subscribe();
+  }
+
+  approveTutorial(id: string) {}
+
+  disapproveTutorial(id: string) {}
+
+  approveTopic(name: string) {}
+
+  disapproveTopic(name: string) {}
+
+  approveTag(name: string) {}
+
+  disapproveTag(name: string) {}
 }

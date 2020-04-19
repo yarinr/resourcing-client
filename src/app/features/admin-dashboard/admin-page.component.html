@@ -11,13 +11,19 @@
     class="actions"
   >
     <mat-card fxFlex="50" class="new-topic">
-      <button mat-button><mat-icon>add</mat-icon>add new Topic</button>
+      <button (click)="openNewTopicDialog()" mat-button>
+        <mat-icon>add</mat-icon>add new Topic
+      </button>
     </mat-card>
     <mat-card fxFlex="50" class="new-tag">
-      <button mat-button><mat-icon>add</mat-icon>add new Tag</button>
+      <button (click)="openNewTagDialog()" mat-button>
+        <mat-icon>add</mat-icon>add new Tag
+      </button>
     </mat-card>
     <mat-card fxFlex="50" class="new-admin">
-      <button mat-button><mat-icon>add</mat-icon>add new admin</button>
+      <button (click)="openNewAdminDialog()" mat-button>
+        <mat-icon>add</mat-icon>add new admin
+      </button>
     </mat-card>
   </div>
 </div>
@@ -72,8 +78,20 @@
         <ng-container matColumnDef="actions">
           <th mat-header-cell *matHeaderCellDef></th>
           <td mat-cell *matCellDef="let element">
-            <button mat-icon-button><mat-icon>check</mat-icon></button>
-            <button mat-icon-button><mat-icon>close</mat-icon></button>
+            <button
+              class="approve"
+              (click)="approveTutorial(element.id)"
+              mat-icon-button
+            >
+              <mat-icon>check</mat-icon>
+            </button>
+            <button
+              class="decline"
+              (click)="disapproveTutorial(element.id)"
+              mat-icon-button
+            >
+              <mat-icon>close</mat-icon>
+            </button>
           </td>
         </ng-container>
 
@@ -109,20 +127,36 @@
         <!-- Icon Column -->
         <ng-container matColumnDef="icon">
           <th mat-header-cell *matHeaderCellDef>Icon</th>
-          <td mat-cell *matCellDef="let element">{{ element.icon }}</td>
+          <td mat-cell *matCellDef="let element">
+            <img src="{{ element.icon }}" />
+          </td>
         </ng-container>
 
         <!-- Category Column -->
         <ng-container matColumnDef="category">
           <th mat-header-cell *matHeaderCellDef>Category</th>
-          <td mat-cell *matCellDef="let element">{{ element.category }}</td>
+          <td mat-cell *matCellDef="let element">
+            {{ categories[element.category] }}
+          </td>
         </ng-container>
 
         <ng-container matColumnDef="actions">
           <th mat-header-cell *matHeaderCellDef></th>
           <td mat-cell *matCellDef="let element">
-            <button mat-icon-button><mat-icon>check</mat-icon></button>
-            <button mat-icon-button><mat-icon>close</mat-icon></button>
+            <button
+              class="approve"
+              (click)="approveTopic(element.name)"
+              mat-icon-button
+            >
+              <mat-icon>check</mat-icon>
+            </button>
+            <button
+              class="decline"
+              (click)="disapproveTopic(element.name)"
+              mat-icon-button
+            >
+              <mat-icon>close</mat-icon>
+            </button>
           </td>
         </ng-container>
 
@@ -155,8 +189,20 @@
         <ng-container matColumnDef="actions">
           <th mat-header-cell *matHeaderCellDef></th>
           <td mat-cell *matCellDef="let element">
-            <button mat-icon-button><mat-icon>check</mat-icon></button>
-            <button mat-icon-button><mat-icon>close</mat-icon></button>
+            <button
+              class="approve"
+              (click)="approveTag(element.name)"
+              mat-icon-button
+            >
+              <mat-icon>check</mat-icon>
+            </button>
+            <button
+              class="decline"
+              (click)="disapproveTag(element.name)"
+              mat-icon-button
+            >
+              <mat-icon>close</mat-icon>
+            </button>
           </td>
         </ng-container>
 
