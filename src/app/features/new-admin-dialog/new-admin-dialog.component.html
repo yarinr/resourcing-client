@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="page-title">
+    Add new admin
+  </div>
+  <form
+    [formGroup]="newAdminForm"
+    (ngSubmit)="onSubmit(newAdminForm.value)"
+    class="new-admin-form"
+  >
+    <mat-form-field class="input-field">
+      <input
+        matInput
+        placeholder="enter user name here"
+        value=""
+        class="form-control"
+        formControlName="userName"
+        id="userName"
+        required
+      />
+    </mat-form-field>
+    <div *ngIf="f.userName.invalid && (f.userName.dirty || f.userName.touched)">
+      <div *ngIf="f.userName.errors.required" class="error-message">
+        required field.
+      </div>
+    </div>
+    <div *ngIf="submitClicked">
+      <div *ngIf="f.level.errors?.required" class="error-message">
+        required field.
+      </div>
+    </div>
+    <button mat-button class="submit-button">User ---> Admin</button>
+  </form>
+</div>

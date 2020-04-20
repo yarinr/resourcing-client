@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="page-title">
+    Create a new Tag
+  </div>
+  <form
+    [formGroup]="newTagForm"
+    (ngSubmit)="onSubmit(newTagForm.value)"
+    class="new-tag-form"
+  >
+    <mat-form-field class="input-field">
+      <input
+        matInput
+        placeholder="enter the tag name here"
+        value=""
+        class="form-control"
+        formControlName="name"
+        id="name"
+        required
+      />
+    </mat-form-field>
+    <div *ngIf="f.name.invalid && (f.name.dirty || f.name.touched)">
+      <div *ngIf="f.name.errors.required" class="error-message">
+        required field.
+      </div>
+    </div>
+
+    <div *ngIf="submitClicked">
+      <div *ngIf="f.level.errors?.required" class="error-message">
+        required field.
+      </div>
+    </div>
+    <button mat-button class="submit-button">Submit</button>
+  </form>
+</div>

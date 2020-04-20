@@ -1,0 +1,60 @@
+<mat-nav-list>
+  <div class="profile-card">
+    <div class="header">
+      <h2>Hello @name !</h2>
+    </div>
+    <!-- TO DO: change true to user.userLevel === UserLevel.ADMIN -->
+    <img
+      *ngIf="true as value; else elseBlock"
+      src="assets\admin-settings-male.png"
+      alt="admin"
+    />
+    <ng-template #elseBlock>
+      <img src="assets\user.png" alt="user"
+    /></ng-template>
+    <h4>@user_name</h4>
+    <span><mat-icon>grade</mat-icon>score</span>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <h2 *ngIf="true as value" matSubheader>
+    Control Panel
+  </h2>
+
+  <a
+    *ngIf="true as value"
+    mat-list-item
+    routerLinkActive="list-item-active"
+    routerLink="/admin"
+    ><mat-icon>dashboard</mat-icon>Dashboard</a
+  >
+
+  <mat-divider *ngIf="true as value"></mat-divider>
+
+  <h2 matSubheader>Activity</h2>
+
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/">
+    <mat-icon>subject</mat-icon>
+    Your Tutorials</a
+  >
+
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/">
+    <mat-icon>swap_vert</mat-icon>
+    Your Votes</a
+  >
+
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/">
+    <mat-icon>comments</mat-icon>
+    Your Comments</a
+  >
+
+  <mat-divider></mat-divider>
+
+  <h2 matSubheader>Saved</h2>
+
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/posts">
+    <mat-icon>bookmark</mat-icon>
+    Bookmarked Tutorials</a
+  >
+</mat-nav-list>

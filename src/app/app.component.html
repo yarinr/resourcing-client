@@ -1,5 +1,16 @@
 <div class="container">
-  <app-navigation-bar></app-navigation-bar>
-  <router-outlet></router-outlet>
+  <app-navigation-bar
+    (toggleSideBarForMe)="sideBarToggler()"
+  ></app-navigation-bar>
+
+  <mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+      <app-side-bar></app-side-bar>
+    </mat-drawer>
+    <mat-drawer-content>
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>
+
   <app-footer class="footer"></app-footer>
 </div>

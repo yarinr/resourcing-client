@@ -5,6 +5,12 @@ import { FooterComponent } from './layouts/footer/footer.component';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
+import { SideBarComponent } from "./layouts/side-bar/side-bar.component";
+import { MatIconModule } from "@angular/material/icon";
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { MatDividerModule } from "@angular/material/divider";
+import { MatListModule } from "@angular/material/list";
+
 import * as fromUser from './entities/user/reducer/user.reducer';
 
 @NgModule({
@@ -13,8 +19,13 @@ import * as fromUser from './entities/user/reducer/user.reducer';
     CommonModule,
     SharedModule,
     RouterModule,
-    StoreModule.forFeature(fromUser.UserReducerToken, fromUser.reducer)
+    MatIconModule,
+    FlexLayoutModule,
+    MatDividerModule,
+    MatListModule
   ],
-  exports: [FooterComponent, NavigationBarComponent]
+  exports: [FooterComponent, NavigationBarComponent, SideBarComponent]
+    StoreModule.forFeature(fromUser.UserReducerToken, fromUser.reducer)
+  ]
 })
 export class CoreModule {}

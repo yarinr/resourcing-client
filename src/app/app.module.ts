@@ -1,14 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CoreModule } from './core/core.module';
-import { FeaturesModule } from './features/features.module';
-import { SharedModule } from './shared/shared.module';
-import { DataService } from './core/services/data/data.service';
-import { FakeTopics } from './core/entities/topics/mocks/topics.mocks';
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { CoreModule } from "./core/core.module";
+import { FeaturesModule } from "./features/features.module";
+import { SharedModule } from "./shared/shared.module";
+import { DataService } from "./core/services/data/data.service";
+import { FakeTopics } from "./core/entities/topics/mocks/topics.mocks";
 import {
   FakeTutorials,
   FakeComments
@@ -19,6 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './core/reducers/reducers';
 import { UserService } from './core/entities/user/services/user.service';
+import { MatButtonModule } from "@angular/material/button";
+import { MatSidenavModule } from "@angular/material/sidenav";
 
 export function preLoadData(provider: UserService) {
   return () => provider.getCurrentUser();
@@ -35,6 +37,8 @@ export function preLoadData(provider: UserService) {
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
+    MatButtonModule,
+    MatSidenavModule
     GraphQLModule,
     HttpClientModule,
     StoreModule.forRoot(reducers, {
