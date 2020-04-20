@@ -6,12 +6,8 @@ import {
 } from '../../entities/category/model/category.model';
 import { Topic } from '../../entities/topics/model/topics.model';
 import { of, Observable } from 'rxjs';
-import {
-  FakeTutorials,
-  FakeComments
-} from '../../entities/tutorial/mocks/tutorial.mock';
+import { FakeTutorials } from '../../entities/tutorial/mocks/tutorial.mock';
 import { Tutorial } from '../../entities/tutorial/model/tutorial.model';
-import { Comment } from '../../entities/tutorial/model/tutorial.model';
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +15,7 @@ import { Comment } from '../../entities/tutorial/model/tutorial.model';
 export class DataService {
   constructor(
     private fakeTopics: FakeTopics,
-    private fakeTutorials: FakeTutorials,
-    private fakeComments: FakeComments
+    private fakeTutorials: FakeTutorials
   ) {}
 
   public getTopicsByCategories(
