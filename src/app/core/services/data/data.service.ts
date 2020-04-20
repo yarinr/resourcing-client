@@ -20,8 +20,7 @@ import { User } from "../../models/user";
 export class DataService {
   constructor(
     private fakeTopics: FakeTopics,
-    private fakeTutorials: FakeTutorials,
-    private fakeComments: FakeComments
+    private fakeTutorials: FakeTutorials
   ) {}
 
   public getTopicsByCategories(

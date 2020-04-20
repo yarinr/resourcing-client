@@ -1,5 +1,5 @@
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -12,10 +12,19 @@ import { FakeTopics } from "./core/entities/topics/mocks/topics.mocks";
 import {
   FakeTutorials,
   FakeComments
-} from "./core/entities/tutorial/mocks/tutorial.mock";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+} from './core/entities/tutorial/mocks/tutorial.mock';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GraphQLModule } from './graphql.module';
+import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './core/reducers/reducers';
+import { UserService } from './core/entities/user/services/user.service';
 import { MatButtonModule } from "@angular/material/button";
 import { MatSidenavModule } from "@angular/material/sidenav";
+
+export function preLoadData(provider: UserService) {
+  return () => provider.getCurrentUser();
+}
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,8 +39,29 @@ import { MatSidenavModule } from "@angular/material/sidenav";
     ReactiveFormsModule,
     MatButtonModule,
     MatSidenavModule
+    GraphQLModule,
+    HttpClientModule,
+    StoreModule.forRoot(reducers, {
+      metaReducers,
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true
+      }
+    })
   ],
-  providers: [DataService, FakeTopics, FakeTutorials, FakeComments],
+  providers: [
+    DataService,
+    FakeTopics,
+    FakeTutorials,
+    FakeComments,
+    UserService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: preLoadData,
+      deps: [UserService],
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
